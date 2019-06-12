@@ -55,7 +55,7 @@ const quotes = [
 ]
 
 const backgroundColors = [
-  "green", "blue", "red", "pink", "yellow", "chocolate", "coral", "cadetblue", "darksalmon", 
+  "green", "blue", "red", "pink", "chocolate", "coral", "cadetblue", "darksalmon", 
   "darkviolet", "dodgerblue", "firebrick", "goldenrod", "khaki", "lightseagreen", "mediumslateblue"
 ]
 
@@ -80,7 +80,6 @@ function getRandomQuote() {
 ***/
 function printQuote() {
   const randomQuote = getRandomQuote()
-  console.log(randomQuote)
   let quoteHTML = `
       <p class="quote">${randomQuote.quote}</p>
       <p class="source">${randomQuote.source}
@@ -138,6 +137,14 @@ function printQuote() {
   changeBackgroundColor()
 }
 
+/***
+  Changes the background color of the page.
+
+  This method changes the background color to one of the colors stored 
+  in the backgroundColors array.  It continually selects a random color
+  until a different color is found ie. if the new color is the same as 
+  old color, a new color will be selected.
+ ***/
 function changeBackgroundColor() {
   const oldBackgroundColor = document.body.style.backgroundColor 
   let newColor = oldBackgroundColor
@@ -150,3 +157,8 @@ function changeBackgroundColor() {
 }
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+// auto-refresh the quote every 20 seconds
+setInterval(() => {
+  printQuote()
+}, 20000)
