@@ -14,16 +14,55 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
+const quotes = [
+  {
+    quote: "We can only see a short distance ahead, but we can see plenty there that needs to be done.",
+    source: "Alan Turing"
+  },
+  {
+    quote: "If you can't explain it simply, you don't understand it well enough.",
+    source: "Albert Einstein"
+  },
+  {
+    quote: "Mistakes are always forgivable, if one has the courage to admit them.",
+    source: "Bruce Lee",
+  },
+  {
+    quote: "My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time.",
+    source: "Steve Jobs"
+  },
+  {
+    quote: "Be yourself; everyone else is already taken.",
+    source: "Oscar Wilde"
+  },
+  {
+    quote: "I have not failed. I've just found 10,000 ways that won't work.",
+    source: "Thomas A. Edison"
+  },
+  {
+    quote: "It is never too late to be what you might have been.",
+    source: "George Eliot"
+  },
+  {
+    quote: "When you're not concerned with succeeding, you can work with complete freedom.",
+    source: "Larry David",
+    citation: "Curb Your Enthusiasm"
+  },
+  {
+    quote: "Mama always said life is like a box of chocolates. You never know what you're going to get.",
+    source: "Tom Hanks",
+    citation: "Forrest Gump",
+    year: 1994
+  },
+]
 
-
-
+console.log(quotes)
 
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number 
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
-
 
 
 
