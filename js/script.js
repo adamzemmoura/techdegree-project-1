@@ -163,7 +163,14 @@ function changeBackgroundColor() {
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-// auto-refresh the quote every 20 seconds
+/***
+  Auto refresh the quote by a given interval.
+
+  This method sets uses setInterval() to repeatedly auto-update the quote. If a previous
+  interval had previously been set, it is cleared to avoid concurrent intervals running.
+  
+  @param  interval  The interval in milliseconds  
+ ***/
 function setQuoteAutoRefresh(interval) {
   if (autoRefreshIntervalID) {
     clearInterval(autoRefreshIntervalID)
