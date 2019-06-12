@@ -59,6 +59,9 @@ const backgroundColors = [
   "darkviolet", "dodgerblue", "firebrick", "goldenrod", "khaki", "lightseagreen", "mediumslateblue"
 ]
 
+// store the id returned from calling setInterval so that it can be cancelled and restarted when the user clicks 'show another quote' button
+let autoRefreshIntervalID = null 
+
 /***
   This method can be used to select a random quote from the quotes array.
    
@@ -135,6 +138,8 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML = quoteHTML
 
   changeBackgroundColor()
+
+  setQuoteAutoRefresh(20000)
 }
 
 /***
@@ -159,6 +164,13 @@ function changeBackgroundColor() {
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 // auto-refresh the quote every 20 seconds
-setInterval(() => {
-  printQuote()
-}, 20000)
+function setQuoteAutoRefresh(interval) {
+  if (autoRefreshIntervalID) {
+    clearInterval(autoRefreshIntervalID)
+  }
+  autoRefreshIntervalID = setInterval(() => {
+    printQuote()
+  }, interval)
+}
+
+setQuoteAutoRefresh(20000)
