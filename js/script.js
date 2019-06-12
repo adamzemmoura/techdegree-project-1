@@ -22,7 +22,7 @@ const quotes = [
   {
     quote: "My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time.",
     source: "Steve Jobs",
-    tags: ["philosophy"]
+    tags: ["philosophy", "technology"]
   },
   {
     quote: "Be yourself; everyone else is already taken.",
@@ -52,6 +52,11 @@ const quotes = [
     year: 1994,
     tags: ["movie", "humor"]
   },
+]
+
+const backgroundColors = [
+  "green", "blue", "red", "pink", "yellow", "chocolate", "coral", "cadetblue", "darksalmon", 
+  "darkviolet", "dodgerblue", "firebrick", "goldenrod", "khaki", "lightseagreen", "mediumslateblue"
 ]
 
 /***
@@ -129,6 +134,19 @@ function printQuote() {
   }
   
   document.getElementById('quote-box').innerHTML = quoteHTML
+
+  changeBackgroundColor()
+}
+
+function changeBackgroundColor() {
+  const oldBackgroundColor = document.body.style.backgroundColor 
+  let newColor = oldBackgroundColor
+  do {
+    const randomColorIndex = Math.floor(Math.random() * backgroundColors.length)
+    newColor = backgroundColors[randomColorIndex]
+    console.log(`old color : ${oldBackgroundColor} . new color : ${newColor}`)
+  } while (newColor === oldBackgroundColor)
+  document.body.style.backgroundColor = newColor 
 }
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
