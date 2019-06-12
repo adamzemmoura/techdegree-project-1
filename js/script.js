@@ -81,6 +81,31 @@ console.log(getRandomQuote())
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
+function printQuote() {
+  const randomQuote = getRandomQuote()
+  
+  let quoteHTML = `
+    <div id="quote-box">
+      <p class="quote">${randomQuote.quote}</p>
+      <p class="source">${randomQuote.source}
+  `
+
+  if (randomQuote.citation) {
+    quoteHTML += `
+      <span class="citation">${randomQuote.citation}</span>
+    `
+  }
+
+  if (randomQuote.year) {
+    quoteHTML += `
+    <span class="year">${randomQuote.year}</span>
+    `
+  }
+
+  quoteHTML += "</p></div>"
+
+  document.getElementById('quote-box').innerHTML = quoteHTML
+}
 
 
 
